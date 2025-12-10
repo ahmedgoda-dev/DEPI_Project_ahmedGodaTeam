@@ -1,0 +1,92 @@
+package tests;
+
+import base.BaseTest;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import pages.*;
+
+public class TC14Happy extends BaseTest {
+
+    @DataProvider(name = "userData")
+    public Object[][] userDataProvider() {
+        return new Object[][]{
+            {
+                "Adham Mohamed Elkoteishi", "adhamkoteishi15@gmail.com", "Automation123",
+                "22", "October", "2006", true, true,
+                "Adham", "Koteishi", "Depi",
+                "El Rehab City,Taha Hussien Street, Group 12,Building 7,Apartment 41",
+                "El Rehab City,Taha Hussien Street, Group 12,Building 7,Apartment 42",
+                "United States", "New York", "New York City", "11841", "01272761790",
+                "Adham Koteishi", "123456789012", "311", "11", "2027",
+                "Please deliver between 9 AM - 5 PM"
+            }
+        };
+    }
+
+    @Test(dataProvider = "userData")
+    public void completePurchaseFlow(
+            String signupName, String signupEmail, String password,
+            String day, String month, String year, boolean newsletter, boolean optin,
+            String firstName, String lastName, String company,
+            String address1, String address2, String country, String state, String city, String zipcode, String mobileNumber,
+            String cardName, String cardNumber, String cvc, String expiryMonth, String expiryYear,
+            String orderComment
+    ) throws InterruptedException {
+
+        HomePage home = new HomePage(driver);
+        ProductsPage products = new ProductsPage(driver);
+        CartPage cart = new CartPage(driver);
+        SignUpPage signup = new SignUpPage(driver);
+        CheckoutPage checkout = new CheckoutPage(driver);
+        PaymentPage payment = new PaymentPage(driver);
+        DeleteAccountPage deleteAccount = new DeleteAccountPage(driver);
+
+        Assert.assertTrue(home.isHomePageVisible());
+
+        products.clickFirstProductAddToCart();
+        products.clickContinueShoppingButton();
+        products.clickSecondProductAddToCart();
+        products.clickViewCartButton();
+
+        Assert.assertTrue(cart.isFirstProductVisible());
+
+        cart.clickProceedToCheckout();
+        cart.clickRegisterLoginButton();
+
+        signup.enterSignupName(signupName);
+        signup.enterSignupEmail(signupEmail);
+        signup.clickSignupButton();
+
+        signup.selectTitleMr();
+        signup.enterPassword(password);
+        signup.selectDOB(day, month, year);
+        signup.toggleNewsletter(newsletter);
+        signup.toggleOptin(optin);
+        signup.fillAccountInformation(firstName, lastName, company, address1, address2, country, state, city, zipcode, mobileNumber);
+        signup.clickCreateAccountButton();
+
+        Assert.assertTrue(signup.isAccountCreatedVisible());
+        signup.clickContinueButton();
+        Assert.assertTrue(signup.isLoggedInAsVisible());
+
+        home.clickCartButton();
+        cart.clickProceedToCheckout();
+
+        Assert.assertTrue(checkout.isAddressDetailsVisible());
+        Assert.assertTrue(checkout.isReviewOrderVisible());
+
+        checkout.enterMessage(orderComment);
+        checkout.clickPlaceOrder();
+
+        payment.enterPaymentDetails(cardName, cardNumber, cvc, expiryMonth, expiryYear);
+        payment.clickPayButton();
+
+        Assert.assertTrue(payment.isOrderSuccessMessageVisible());
+       
+        payment.clickContinueButton();
+
+        deleteAccount.clickDeleteAccountButton();
+        Assert.assertTrue(deleteAccount.isAccountDeletedVisible());
+    }
+}
