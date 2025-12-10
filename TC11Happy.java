@@ -1,29 +1,31 @@
 package tests;
 
-import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import base.BaseTest;
 import pages.HomePage;
 import pages.CartPage;
 
 public class TC11Happy extends BaseTest {
 
-@Test
-	  public void verifySubscriptionHappyScenario() throws InterruptedException {
+    @Test
+    public void verifySubscriptionPositive() throws InterruptedException {
 
-	   HomePage home = new HomePage(driver);
-	   CartPage cart = new CartPage(driver);
+        HomePage home = new HomePage(driver);
+        CartPage cart = new CartPage(driver);
+        Assert.assertTrue(home.isHomePageVisible(), "Home page is NOT visible!");
 
-	   home.clickCart();
-	   Thread.sleep(3000);
+        home.clickCartButton();
+        Thread.sleep(1000);
 
-	   Assert.assertTrue(cart.isSubscriptionTitleVisible(), "Subscription title is NOT visible!");
+        Assert.assertTrue(cart.isSubscriptionHeaderVisible(), "'SUBSCRIPTION' header is NOT visible!");
 
-	   cart.enterEmail("testuser@gmail.com");
-	   cart.clickSubscribe();
+        cart.enterSubscriptionEmail("testuser@gmail.com");
+        cart.clickSubscriptionArrowButton();
 
-	   Thread.sleep(3000);
-
-	   Assert.assertTrue(cart.isSuccessMessageVisible(), "Success message is NOT visible!");
-	    }
+        Assert.assertTrue(
+            cart.isSubscriptionSuccessMessageVisible(),
+            "Subscription success message is NOT visible!"
+        );
+    }
 }
