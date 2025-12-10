@@ -1,47 +1,34 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
+import pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
-    WebDriver driver;
-
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public HomePage(WebDriver driver){
+        super(driver);
     }
 
-    @FindBy(xpath = "//a[@href='/view_cart']")
-    WebElement cartButton;
+    @FindBy(css = "a[href='/login']")
+    private WebElement signupLoginBtn;
 
-    public void clickCart() {
-        cartButton.click();
-    }
-    
-    @FindBy(xpath = "//h2[text()='Full-Fledged practice website for Automation Engineers']")
-    WebElement homeTitle;
+    @FindBy(css = "a[href='/products']")
+    private WebElement productsBtn;
 
-    @FindBy(xpath = "//a[contains(text(),'Products')]")
-    WebElement productsButton;
+    @FindBy(css = "a[href='/contact_us']")
+    private WebElement contactUsBtn;
 
-    
-    public boolean isHomePageVisible() {
-        return homeTitle.isDisplayed();
+    public void clickSignupLogin(){
+        click(signupLoginBtn);
     }
 
-    public void clickProducts() {
-        productsButton.click();
+    public void clickProducts(){
+        click(productsBtn);
     }
-    @FindBy(xpath = "(//a[contains(.,'View Product')])[1]")
-    WebElement firstProductView;
 
-    public void clickViewProduct(int index) {
-        WebElement firstProduct = index == 1 ? firstProductView : null;
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", firstProduct);
+    public void clickContactUs(){
+        click(contactUsBtn);
     }
 }
