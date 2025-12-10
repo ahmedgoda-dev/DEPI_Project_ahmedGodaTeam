@@ -7,31 +7,31 @@ import pages.HomePage;
 import pages.ProductsPage;
 import pages.CartPage;
 
-public class TC12Happy extends BaseTest {
+public class TC12 extends BaseTest {
 
-	@Test
-	public void verifyProductsAddedToCart() {
+    @Test
+    public void verifyProductsAddedToCart() {
 
-	    HomePage home = new HomePage(driver);
-	    ProductsPage products = new ProductsPage(driver);
-	    CartPage cart = new CartPage(driver);
-	   
-	    Assert.assertTrue(home.isHomePageVisible());
+        HomePage home = new HomePage(driver);
+        ProductsPage products = new ProductsPage(driver);
+        CartPage cart = new CartPage(driver);
 
-	    home.clickProducts();
-	    products.addToCart(1);
-	    products.clickContinueShopping();
-	    products.addToCart(2);
-	    products.clickViewCart();
+        Assert.assertTrue(home.isHomePageVisible());
 
-	    Assert.assertEquals(cart.getProductName(1), "Blue Top");
-	    Assert.assertEquals(cart.getProductPrice(1), "Rs. 500");
-	    Assert.assertEquals(cart.getProductQuantity(1), "1");
-	    Assert.assertEquals(cart.getProductTotal(1), "Rs. 500");
+        home.clickProductsButton();
+        products.clickFirstProductAddToCart();
+        products.clickContinueShoppingButton();
+        products.clickSecondProductAddToCart();
+        products.clickViewCartButton();
 
-	    Assert.assertEquals(cart.getProductName(2), "Men Tshirt");
-	    Assert.assertEquals(cart.getProductPrice(2), "Rs. 400");
-	    Assert.assertEquals(cart.getProductQuantity(2), "1");
-	    Assert.assertEquals(cart.getProductTotal(2), "Rs. 400");
-	}
+        Assert.assertEquals(cart.getProductName(1), "Blue Top");
+        Assert.assertEquals(cart.getProductPrice(1), "Rs. 500");
+        Assert.assertEquals(cart.getProductQuantity(1), "1");
+        Assert.assertEquals(cart.getProductTotal(1), "Rs. 500");
+
+        Assert.assertEquals(cart.getProductName(2), "Men Tshirt");
+        Assert.assertEquals(cart.getProductPrice(2), "Rs. 400");
+        Assert.assertEquals(cart.getProductQuantity(2), "1");
+        Assert.assertEquals(cart.getProductTotal(2), "Rs. 400");
+    }
 }
