@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "5650f3cb-5f3a-4468-96c0-f8d84a5d02dd",
+		"name": "automationexercise_Amr_Khaled_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50477304",
+		"_collection_link": "https://amrk08658-7813073.postman.co/workspace/Amr-Khaled's-Workspace~c6a52638-f3b6-453f-8cde-f6e01e89c357/collection/50477304-5650f3cb-5f3a-4468-96c0-f8d84a5d02dd?action=share&source=collection_link&creator=50477304"
+	},
+	"item": [
+		{
+			"name": "API 2: POST To All Products List",
+			"item": [
+				{
+					"name": "POST To All Products List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Products List Incorrect URL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/productsListt",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"productsListt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Body Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"test\": \"data\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Products",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH Products",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD Products",
+					"request": {
+						"method": "HEAD",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Products",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OPTIONS Products",
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API 3: Get All Brands List",
+			"item": [
+				{
+					"name": "Get All Brands List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/brandsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Brands List URL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/brandsListt",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"brandsListt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Brands",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/brandsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Brands",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/brandsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH Brands",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/brandsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Brands",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/brandsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD Brands",
+					"request": {
+						"method": "HEAD",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/brandsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OPTIONS Brands",
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "https://automationexercise.com/api/brandsList",
+							"protocol": "https",
+							"host": [
+								"automationexercise",
+								"com"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
